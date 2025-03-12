@@ -3,11 +3,11 @@ runtime: python311
 build:
   commands:
     build:
-      - "pip install -r requirements.txt"
+      - echo "Installing dependencies..."
+      - pip install --upgrade pip
+      - pip install -r requirements.txt
 run:
-  pre-run:
-    - "cd display_payment_app"
-  command: "py app_flashsale.py"
+  command: "py display_payment_app/app_flashsale.py"
   network:
     port: 5000
 

@@ -7,7 +7,7 @@ build:
 run:
   pre-run:
     - "cd display_payment_app"
-  command: "flask run --host=0.0.0.0 --port=5000 -p app_flashsale"
+  command: "py app_flashsale.py"
   network:
     port: 5000
 

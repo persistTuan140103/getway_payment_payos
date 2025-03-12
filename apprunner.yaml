@@ -9,4 +9,3 @@ run:
   command: gunicorn display_payment_app.app_flashsale:app
   network:
     port: 8000
-port: 8000

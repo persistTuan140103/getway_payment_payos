@@ -8,7 +8,7 @@ from payos import PayOS, ItemData, PaymentData
 load_dotenv()
 
 BASE_URL_PROJECT = os.path.abspath(os.path.join(os.path.dirname(__file__), *['..']*1))
-
+print("Base url project", BASE_URL_PROJECT)
 BASE_ANALYSIS_DIR = os.path.join(BASE_URL_PROJECT, 'data')
 # PAYOS_CLIENT_ID = os.getenv("PAYOS_CLIENT_ID")
 # PAYOS_API_KEY = os.getenv("PAYOS_API_KEY")
@@ -65,4 +65,4 @@ def create_payment_link():
     return render_template("payment_qr.html", checkout_url=payment_link_response.checkoutUrl)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)
+    app.run(host="0.0.0.0", port=8080)

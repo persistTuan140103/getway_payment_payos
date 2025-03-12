@@ -1,14 +1,15 @@
 version: "1.0"
-runtime: python311
+runtime: python3
 build:
   commands:
     build:
-      - echo "Installing dependencies..."
+      - echo "=== Start Build ==="
+      - ls -la
+      - python --version
       - pip install --upgrade pip
       - pip install -r requirements.txt
+      - echo "=== End Build ==="
 run:
-  command: "py display_payment_app/app_flashsale.py"
+  command: "python app_flashsale.py"
   network:
     port: 5000
-
-    

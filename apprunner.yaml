@@ -2,7 +2,7 @@ version: "1.0"
 runtime: python311
 build:
   workingDirectory: "display_payment_app"
-  buildCommand: "pip install -r ../requirements.txt"
-  startCommand: "flask run --host=0.0.0.0 --port=5000"
+  buildCommand: "pip install -r requirements.txt"
+  startCommand: "cd display_payment_app && flask run --host=0.0.0.0 --port=5000"
 port : "5000"
 

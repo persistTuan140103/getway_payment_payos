@@ -1,13 +1,13 @@
 version: "1.0"
-runtime: python3
+runtime: python311
 build:
   commands:
     build:
-      - pip install -r requirements.txt
+      - "pip install -r requirements.txt"
 run:
-  command:
-    - cd display_payment_app
-    - flask run --host=0.0.0.0 --port=5000 -p app_flashsale
+  pre-run:
+    - "cd display_payment_app"
+  command: "flask run --host=0.0.0.0 --port=5000 -p app_flashsale"
   network:
     port: 5000
 

@@ -1,12 +1,11 @@
 version: "1.0"
-runtime: python311
+runtime: python3
 build:
   commands:
     build:
       - pip install --upgrade pip
       - pip install -r requirements.txt
 run:
-  runtime-version: 3.11
-  command: python display_payment_app/app_flashsale.py
+  command: gunicorn -w 4 -b 0.0.0.0:5000 display_payment.app_flashsale:app
   network:
     port: 5000

@@ -6,6 +6,7 @@ build:
       - pip install --upgrade pip
       - pip install -r requirements.txt
 run:
+  runtime-version: 3.11
   command: python display_payment_app/app_flashsale.py
   network:
     port: 5000

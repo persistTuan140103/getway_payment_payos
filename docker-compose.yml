@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=display_payment_app/app_flashsale.py
+      - FLASK_ENV=production
+      - BASE_ANALYSIS_DIR=/app/data
+      - PAYOS_CLIENT_ID=${PAYOS_CLIENT_ID}
+      - PAYOS_API_KEY=${PAYOS_API_KEY}
+      - PAYOS_CHECKSUM_KEY=${PAYOS_CHECKSUM_KEY}
+      - WEB_DOMAIN=${WEB_DOMAIN}
+    volumes:
+      - .:/app

@@ -1,24 +1,9 @@
-# Use the official Python image from the Docker Hub
-FROM python:3.11-slim
-
-# Set the working directory in the container
+FROM python:3.10-slim
 WORKDIR /app
-
-# Copy the requirements file into the container
-COPY requirements.txt .
-
-# Install the dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the application code into the container
 COPY . .
+RUN pip install --no-cache-dir --upgrade pip
+RUN python --version  # Kiểm tra phiên bản Python
+RUN pip --version  # Kiểm tra phiên bản pip
 
-# Set environment variables
-ENV FLASK_APP=display_payment_app/app_flashsale.py
-ENV FLASK_ENV=production
-
-# Expose the port the app runs on
-EXPOSE 5000
-
-# Run the application
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+RUN pip install --no-cache-dir -r requirements.txt
+CMD gunicorn -w 4 -b 0.0.0.0:5000 display_payment_app.app_flashsale:app

@@ -3,12 +3,8 @@ runtime: python3
 build:
   commands:
     build:
-      - echo "=== Start Build ==="
-      - ls -la
-      - python --version
       - pip install --upgrade pip
       - pip install -r requirements.txt
-      - echo "=== End Build ==="
 run:
   command: "python app_flashsale.py"
   network:

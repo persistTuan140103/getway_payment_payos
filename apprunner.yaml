@@ -1,7 +1,8 @@
 version: "1.0"
 runtime: python311
 build:
-  buildCommand: "pip install -r requirements.txt"
+  workingDirectory: "display_payment_app"
+  buildCommand: "pip install -r ../requirements.txt"
   startCommand: "flask run --host=0.0.0.0 --port=5000"
 port : "5000"
 

@@ -8,5 +8,5 @@ build:
 run:
   command: gunicorn -w 4 display_payment_app.app_flashsale:app --bind=0.0.0.0:8080
   network: 
-    port: 8000
+    port: 8080
     env: PORT

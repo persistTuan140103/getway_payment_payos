@@ -4,6 +4,9 @@ import pandas as pd
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect
 from payos import PayOS, ItemData, PaymentData
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 load_dotenv()
 
@@ -23,6 +26,11 @@ payos = PayOS(PAYOS_CLIENT_ID, PAYOS_API_KEY, PAYOS_CHECKSUM_KEY)
 WEB_DOMAIN= os.getenv("WEB_DOMAIN")
 
 app = Flask(__name__)
+app.logger.info("Application started successfully")
+
+@app.route('/health')
+def health():
+    return {"status": "healthy"}, 200
 
 @app.route("/")
 def display_products():

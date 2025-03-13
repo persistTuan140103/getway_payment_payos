@@ -6,7 +6,7 @@ build:
       - pip install --upgrade pip
       - pip install -r requirements.txt
 run:
-  command: gunicorn display_payment_app.app_flashsale:app --bind=0.0.0.0:8080 --timeout 120 --log-level debug
+  command: python display_payment_app/app_flashsale.py
   network: 
     port: 8080
     env: PORT
